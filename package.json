@@ -8,6 +8,9 @@
     "build": "cmake-js compile",
     "start": "tsc && node dist/index.js"
   },
+  "node": {
+    "version": "~22.19"
+  },
   "binary": [
     {
       "napi_versions": [9]
