@@ -12,9 +12,6 @@ Icon[]
 # Do not store zip files
 *.zip
 
-# avoid yarn.lock or package-lock.json
-package-lock.json
-yarn.lock
 
 # dependencies 
 node_modules/
