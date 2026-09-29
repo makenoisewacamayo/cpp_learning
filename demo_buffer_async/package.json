@@ -1,0 +1,33 @@
+{
+  "name": "node_develop",
+  "version": "1.0.0",
+  "description": "Learning node js with cmake",
+  "main": "index.js",
+  "scripts": {
+    "check-node": "node -e \"const v=process.versions.node.split('.')[0]; if (v !== '22') { throw new Error('Node 22 is required, current: ' + process.version); }\"",
+    "preinstall": "npm run check-node",
+    "prebuild": "npm run check-node",
+    "prestart": "npm run check-node",
+    "build": "cmake-js compile",
+    "start": "tsc && node dist/index.js"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "binary": [
+    {
+      "napi_versions": [9]
+    }
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "cmake-js": "^8.0.0",
+    "node-addon-api": "^8.9.2"
+  }
+}

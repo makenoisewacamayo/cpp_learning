@@ -1,0 +1,26 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    "lib": ["esnext"],
+    "types": ["node"],
+    "esModuleInterop": true,
+    
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    "strict": true,
+
+  }
+}
