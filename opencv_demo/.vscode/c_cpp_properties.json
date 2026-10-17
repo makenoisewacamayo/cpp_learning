@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/node_modules/node-addon-api/**",
+                "/Users/exravgu/.brew/Cellar/opencv/5.0.0_10/include/opencv5"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+               "${workspaceFolder}/node_modules/node-addon-api/**"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
+        }
+    ],
+    "version": 4
+}

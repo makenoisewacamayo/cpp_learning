@@ -1,10 +1,13 @@
 cmake_minimum_required(VERSION 3.15)
 cmake_policy(SET CMP0091 NEW)
 cmake_policy(SET CMP0042 NEW)
+set(CMAKE_OSX_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk)
+set(CMAKE_OSX_DEPLOYMENT_TARGET=15.4)
 
 project(learning_cpp VERSION 1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 
 include_directories(${CMAKE_JS_INC} "addons")
 file(GLOB SOURCES "addons/*.cc" "addons/*.cpp" "addons/*.c")

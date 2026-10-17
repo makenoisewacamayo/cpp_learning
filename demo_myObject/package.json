@@ -8,7 +8,8 @@
     "preinstall": "npm run check-node",
     "prebuild": "npm run check-node",
     "prestart": "npm run check-node",
-    "build": "cmake-js compile",
+    "build:cmake": "cmake-js compile",
+    "build": "SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk  npm run build:cmake",
     "start": "tsc && node dist/index.js"
   },
   "engines": {
