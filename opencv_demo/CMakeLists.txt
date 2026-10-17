@@ -13,8 +13,11 @@ include_directories(${CMAKE_JS_INC} "addons")
 file(GLOB SOURCES "addons/*.cc" "addons/*.cpp" "addons/*.c")
 
 # add these lines for opencv
-set(HINT_OPENCV_DIR "${HOMEBREW_CELLAR}}/opencv/5.0.0_10/lib")
-if(NOT DEFINED OpenCV_DIR)
+set(HOMEBREW_CELLAR "/opt/homebrew/Cellar")
+set(HINT_OPENCV_DIR "${HOMEBREW_CELLAR}/opencv/5.0.0_10/lib")
+
+message(STATUS "HOMEBREW_CELLAR: ${HOMEBREW_CELLAR}")
+if(NOT DEFINED OpenCVs_DIR)
   set(OpenCV_DIR "${HINT_OPENCV_DIR}/cmake/opencv5" CACHE PATH "OpenCV cmake dir")
 endif()
 
@@ -22,6 +25,7 @@ find_package(OpenCV REQUIRED COMPONENTS core imgcodecs imgproc)
 message(STATUS "OpenCV found: ${OpenCV_VERSION}")
 message(STATUS "OpenCV include dirs: ${OpenCV_INCLUDE_DIRS}")
 message(STATUS "OpenCV libs: ${OpenCV_LIBS}")
+message(STATUS "OpenCV Dir: ${OpenCV_DIR}")
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
