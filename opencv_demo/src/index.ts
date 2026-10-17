@@ -1,18 +1,17 @@
-import cvAddon from './bindings'
+import cvAddon, { CvImage } from './bindings'
 import fs from  'node:fs'
 import path from 'node:path'
 
-function main() {
-	const buffer = fs.readFileSync(path.join(__dirname, '..', 'assets', 'example_image.jpeg'));
-    const image = cvAddon.fromBuffer(buffer);
 
-    console.log('size', image.width(), image.height());
-    const resizedImage = image.resize(320, 240);
-    const out = resizedImage.toBuffer('.jpeg', 90);
+const input_image_path = path.join(__dirname, '..', 'assets', 'example_image.jpeg');
+const output_dir_path = path.join(__dirname, '..', 'output');
 
-    const outputDir = path.join(__dirname, '..', 'output');
-    fs.mkdirSync(outputDir, { recursive: true });
-    fs.writeFileSync(path.join(outputDir, 'test_resized.jpeg'), out);
-}
+const buffer = fs.readFileSync(input_image_path);
+const image : CvImage= cvAddon.fromBuffer(buffer);
 
-main();
+console.log('size', image.width(), image.height());
+
+const resizedImage: CvImage = image.resize(320, 240);
+const out = resizedImage.toBuffer('.jpeg', 90);
+
+fs.writeFileSync(path.join(output_dir_path, 'test_resized.jpeg'), out);

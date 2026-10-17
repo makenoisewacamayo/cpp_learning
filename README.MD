@@ -100,13 +100,13 @@ There 2  ways to integrate OpenCV with Napi. these is specifically for macOS, an
 - using sources at include/opencv5 dir, since we using C++ and is necessary to include opencv *.h  files.
 - using dylib libs at opencv/lib, are dynamic libraries, allow load the modules at runtime; allow load only the components needed 
 
->> use brew config, to check value of HOMEBREW_CELLAR
+>> use brew config, to check value of HOMEBREW_CELLAR an replace _HOMEBREW_CELLAR_DIR_ with the actual path,
 
 Adding these lines into `CMakeLists.txt` will do the tricks
 
 ```cmake
 # the version of opencv depends of formulae used and  the version.
-set(HINT_OPENCV_DIR "${HOMEBREW_CELLAR}/opencv/5.0.0_10/lib")
+set(HINT_OPENCV_DIR " _HOMEBREW_CELLAR_DIR_/opencv/5.0.0_10/lib")
 if(NOT DEFINED OpenCV_DIR)
   set(OpenCV_DIR "${HINT_OPENCV_DIR}/cmake/opencv5" CACHE PATH "OpenCV cmake dir")
 endif()
@@ -135,10 +135,7 @@ if everything is right should see these lines when press `npm run build`
 -- OpenCV libs: opencv_core;opencv_imgcodecs;opencv_imgproc
 ```
 
-
-#### 
  
-
 
 ## Usage
 
@@ -159,3 +156,4 @@ The compiled addon is emitted at `build/Release/*.node` and loaded from the Type
 - Argument validation and throwing JavaScript exceptions from C++
 - CMake configuration for Node addons (cmake-js, `NAPI_VERSION`, macOS `@rpath`)
 - TypeScript interop with native modules
+- Integration of OpenCV with Node.js.
