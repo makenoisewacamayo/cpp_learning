@@ -1,7 +1,7 @@
 {
-  "name": "node_develop",
+  "name": "opencv_demo",
   "version": "1.0.0",
-  "description": "Learning node js with cmake",
+  "description": "More realistic example of using OpenCV in C++ with node_addon_api, being used in Node.js",
   "main": "index.js",
   "scripts": {
     "check-node": "node -e \"const v=process.versions.node.split('.')[0]; if (v !== '22') { throw new Error('Node 22 is required, current: ' + process.version); }\"",

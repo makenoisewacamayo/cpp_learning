@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/node_modules/node-addon-api/**",
-                "/opt/homebrew/Cellar/opencv/5.0.0_10/include/opencv5"
+                "/Users/exravgu/.brew/Cellar/opencv/5.0.0_10/include/opencv5"
             ],
             "defines": [],
             "macFrameworkPath": [

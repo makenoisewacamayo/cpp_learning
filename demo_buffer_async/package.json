@@ -1,8 +1,8 @@
 {
-  "name": "node_develop",
+  "name": "demo_buffer_async",
   "version": "1.0.0",
-  "description": "Learning node js with cmake",
-  "main": "index.js",
+  "description": "Example of async processing in C++ with node_addon_api, being used in Node.js",
+  "main": "src/index.ts",
   "scripts": {
     "check-node": "node -e \"const v=process.versions.node.split('.')[0]; if (v !== '22') { throw new Error('Node 22 is required, current: ' + process.version); }\"",
     "preinstall": "npm run check-node",
