@@ -1,30 +1,36 @@
-import cvAddon, { CvImage } from './bindings'
-import fs from  'node:fs'
-import path from 'node:path'
+import cvAddon, { CvImage, FaceDetector } from './bindings';
+import fs from 'node:fs';
+import path from 'node:path';
 
+const inputImagePath = path.join(
+    __dirname, '..', 'assets', 'example_image.jpeg'
+);
+const outputDirPath = path.join(__dirname, '..', 'output');
 
-const input_image_path = path.join(__dirname, '..', 'assets', 'example_image.jpeg');
-const output_dir_path = path.join(__dirname, '..', 'output');
+const faceCascadePath = path.join(
+    __dirname, '..', 'assets', 'haarcascade_frontalface_alt.xml'
+);
+const eyeCascadePath = path.join(
+    __dirname, '..', 'assets', 'haarcascade_eye_tree_eyeglasses.xml'
+);
 
-console.log('input image path:', input_image_path);
-console.log('output dir path:', output_dir_path);
+const buffer = fs.readFileSync(inputImagePath);
+const image: CvImage = cvAddon.fromBuffer(buffer);
 
-const buffer = fs.readFileSync(input_image_path);
-const image : CvImage= cvAddon.fromBuffer(buffer);
+console.log('Original image size:', image.width(), image.height());
 
-console.log('size of original image ', image.width(), image.height());
+const detector = new FaceDetector(
+    faceCascadePath,
+    eyeCascadePath,
+    { scale: 1.3, tryFlip: false }
+);
+console.log('*************************************');
+console.log('Detection result: ');
+console.log('*************************************');
 
-const resizedImage: CvImage = image.resize(320, 240);
+console.dir(detector.detect(image), { depth: null });
 
+const result = detector.detectWithImage(image);
+fs.writeFileSync(path.join(outputDirPath, 'test_resized.jpeg'), result.image);
 
-console.log('size of resized image ', resizedImage.width(), resizedImage.height());
-
-const out = resizedImage.toBuffer('.jpeg', 90);
-
-
-
-// clean up.
 image.release();
-resizedImage.release();
-
-fs.writeFileSync(path.join(output_dir_path, 'test_resized.jpeg'), out);

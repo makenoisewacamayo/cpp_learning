@@ -30,8 +30,6 @@ message(STATUS "OpenCV Dir: ${OpenCV_DIR}")
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 
-
-
 add_library(${PROJECT_NAME} SHARED ${SOURCES} ${CMAKE_JS_SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} ${OpenCV_LIBS})
