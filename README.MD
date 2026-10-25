@@ -152,6 +152,9 @@ The only difference in the `CMakeLists.txt` with previous example `demo_opencv`,
 find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs highgui videoio xobjdetect)
 ```
 
+results:
+![Face detection results](opencv_facedetect_demo/output/test_resized.jpeg)
+
 ## Usage
 
 it will fails if you don't use node 22.x
