@@ -165,7 +165,7 @@ find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs highgui videoio x
 ```
 
 results:
-![Face detection results](opencv_facedetect_demo/output/test_resized.jpeg)
+![Face detection results](opencv_facedetect_demo/output/test_face_detect.jpeg)
 
 ## Usage
 
