@@ -137,7 +137,7 @@ if everything is right should see these lines when press `npm run build`
 
 ### `opencv_facedetect_demo`
 
-I wannt to continue to learn, these time take a real example from the docs of opencv. [opencv sample face detect] (https://docs.opencv.org/5.0/examples/opencv_contrib_modules_xobjdetect_samples_facedetect_cpp.html)"
+I wannt to continue to learn, these time take a real example from the docs of opencv. [opencv sample face detect](https://docs.opencv.org/5.0/examples/opencv_contrib_modules_xobjdetect_samples_facedetect_cpp.html)
 
 In these example we take an existing Cpp code and adapted to use napi. 
 
