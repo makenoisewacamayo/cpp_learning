@@ -147,7 +147,7 @@ I want to continue learning, these time take a real example from the docs of ope
 
 In these example we take an existing Cpp code and adapted to use napi.
 
-##### warning| 
+##### warning!!! 
 In the original code can access the camera and use highgui to open a window, i mean  highgui, it based on QT Library, a powerful toolkit for building GUI applications, agnostic to the underlying platform.
 
 ```cpp
@@ -163,9 +163,9 @@ In the original code can access the camera and use highgui to open a window, i m
 The nature of node made impossible to access the camera and less using highgui, what I do is read an image as a buffer and apply face detection.
 
 
-Face detection use haar cascade face detector created by Rainer Lienhart  [Haar Cascade face detection xml file](opencv_facedetect_demo/assets/haarcascade_frontalface_alt.xml)
+For face detection using haar cascade algorithm created by Rainer Lienhart  [Face detection xml file](opencv_facedetect_demo/assets/haarcascade_frontalface_alt.xml)
 
-Eye detection use haar cascade eye detector created by Shameem Hameedt  [Haar Cascade eye detection xml file](opencv_facedetect_demo/assets/haarcascade_eye_tree_eyeglasses.xml)
+Eye detection use haar cascade algorithm created by [Shameem Hameedt](http://umich.edu/~shameem)  [Eye detection xml file](opencv_facedetect_demo/assets/haarcascade_eye_tree_eyeglasses.xml)
 
 
 
