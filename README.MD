@@ -137,7 +137,7 @@ if everything is right should see these lines when press `npm run build`
 
 ### `opencv_facedetect_demo`
 
-I wannt to continue to learn, these time take a real example from the docs of opencv. [opencv sample face detect](https://docs.opencv.org/5.0/examples/opencv_contrib_modules_xobjdetect_samples_facedetect_cpp.html)
+I want to continue learning, these time take a real example from the docs of opencv. [opencv sample face detect](https://docs.opencv.org/5.0/examples/opencv_contrib_modules_xobjdetect_samples_facedetect_cpp.html)
 
 - imgproc: is for processing images.
 - imgcodecs: is for reading and writing different image format.
@@ -145,19 +145,28 @@ I wannt to continue to learn, these time take a real example from the docs of op
 - videoio: is for video capture and writing.
 - xobjdetect: is for object detection.
 
-In these example we take an existing Cpp code and adapted to use napi. a word of caution.
-In the original code can access the camera and use highgui to open a window, i mean  highgui
+In these example we take an existing Cpp code and adapted to use napi.
+
+##### warning| 
+In the original code can access the camera and use highgui to open a window, i mean  highgui, it based on QT Library, a powerful toolkit for building GUI applications, agnostic to the underlying platform.
 
 ```cpp
+  // videoio function
   VideoCapture capture;
 
+  // highgui function
   void detectAndDraw( Mat& img, CascadeClassifier& cascade,
                     CascadeClassifier& nestedCascade,
                     double scale, bool tryflip )
 ```
 
-For security constrains is not possible to do that from node. 
-what i do is read an image as buffer apply face detection. 
+The nature of node made impossible to access the camera and less using highgui, what I do is read an image as a buffer and apply face detection.
+
+
+Face detection use haar cascade face detector created by Rainer Lienhart  [Haar Cascade face detection xml file](opencv_facedetect_demo/assets/haarcascade_frontalface_alt.xml)
+
+Eye detection use haar cascade eye detector created by Shameem Hameedt  [Haar Cascade eye detection xml file](opencv_facedetect_demo/assets/haarcascade_eye_tree_eyeglasses.xml)
+
 
 
 ```cmake
