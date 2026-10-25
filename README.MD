@@ -139,14 +139,26 @@ if everything is right should see these lines when press `npm run build`
 
 I wannt to continue to learn, these time take a real example from the docs of opencv. [opencv sample face detect](https://docs.opencv.org/5.0/examples/opencv_contrib_modules_xobjdetect_samples_facedetect_cpp.html)
 
-In these example we take an existing Cpp code and adapted to use napi. 
-
-The only difference in the `CMakeLists.txt` with previous example `demo_opencv`, is modules loaded
 - imgproc: is for processing images.
 - imgcodecs: is for reading and writing different image format.
 - highgui: Manipulating windows context and mouse events [high gui opencv](https://docs.opencv.org/4.13.0/d7/dfc/group__highgui.html)
 - videoio: is for video capture and writing.
 - xobjdetect: is for object detection.
+
+In these example we take an existing Cpp code and adapted to use napi. a word of caution.
+In the original code can access the camera and use highgui to open a window, i mean  highgui
+
+```cpp
+  VideoCapture capture;
+
+  void detectAndDraw( Mat& img, CascadeClassifier& cascade,
+                    CascadeClassifier& nestedCascade,
+                    double scale, bool tryflip )
+```
+
+For security constrains is not possible to do that from node. 
+what i do is read an image as buffer apply face detection. 
+
 
 ```cmake
 find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs highgui videoio xobjdetect)
