@@ -176,6 +176,56 @@ find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs highgui videoio x
 results:
 ![Face detection results](opencv_facedetect_demo/output/test_face_detect.jpeg)
 
+
+### `opencv_classification_demo`
+
+This demo showcases image classification using a pre-trained model (GoogLeNet) with OpenCV and Node.js.
+
+To download the model file.
+
+```python
+cd opencv_classification_demo/assets/dnn
+python3 -m venv path/to/venv
+source path/to/venv/bin/activate
+pip install -r requirements.txt
+python download_models.py googlenet
+deactivate
+```
+
+For more models see [models.yml](opencv_classification_demo/assets/dnn/models.yml) included in the assets folder.
+
+The labels file (in english) [ILSVRC2012.txt](opencv_classification_demo/assets/classification_classes_ILSVRC2012.txt) is also included.
+Can download as well from [from the official opencv dnn files](https://github.com/opencv/opencv/blob/5.x/samples/data/dnn/classification_classes_ILSVRC2012.txt).
+
+The classification algorithm required both the model and the labels file as input
+
+```js
+    const classifier = new Classifier(googlenetModelPath, classificationClassesPath, {
+        width: 224, 
+        height: 224,
+        topK: 5, // give the top 5 predictions
+        swapRB: false, // swap red and blue channels
+        crop: false, // crop the image
+    });
+```
+
+Input image used by classification 
+
+![Input image](opencv_clasification_demo/assets/test_example.jpg)
+
+the results of the algorithm will be displayed in the console.
+```bash
+  Top predictions:
+  [812] space shuttle: 0.9998
+  [404] airliner: 0.0001
+  [833] submarine, pigboat, sub, U-boat: 0.0001
+  [405] airship, dirigible: 0.0001
+  [657] missile: 0.0000
+```
+
+Image results image will be saved to `output/annotated.jpg`.
+![Annotated image](opencv_clasification_demo/output/annotated.jpg)
+
 ## Usage
 
 it will fails if you don't use node 22.x
