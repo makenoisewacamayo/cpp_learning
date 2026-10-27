@@ -224,6 +224,7 @@ the results of the algorithm will be displayed in the console.
 ```
 
 Image results image will be saved to `output/annotated.jpg`.
+
 ![Annotated image](opencv_clasification_demo/output/annotated.jpg)
 
 ## Usage
