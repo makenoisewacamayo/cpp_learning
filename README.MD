@@ -7,9 +7,16 @@ There easy way to run an external tool. [Child Process](https://nodejs.org/docs/
 
 my goal here is using `Napi` and C++, of course can use any api from node js from `Napi` including child process,.
 
-i did all these in my Mac M3
 
 ## Requirements
+
+ YOLO is included as submodule.  more info [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main).
+These are models to detect objects in images and videos. applied to [`opencv_facedetect_demo`](#opencv_facedetect_demo) who use haar cascade algorithms.
+
+Run these command.
+```bash
+ git config --local core.hooksPath .githooks
+```
 
 - **Node.js 22.x** (enforced via `engines` + `engine-strict`)
 - **CMake** and a C++17 compiler (AppleClang/Xcode Command Line Tools on macOS)
@@ -48,10 +55,10 @@ if you are using visual studio code.
 
 ```json
 "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/node_modules/node-addon-api/**",
-                "_HOMEBREW_CELLAR_DIR_/opencv/5.0.0_10/include/opencv5"
-            ],
+  "${workspaceFolder}/**",
+  "${workspaceFolder}/node_modules/node-addon-api/**",
+  "_HOMEBREW_CELLAR_DIR_/opencv/5.0.0_10/include/opencv5" // only if you running opencv demos.
+],
 ```
 
 
