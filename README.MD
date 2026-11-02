@@ -11,7 +11,7 @@ my goal here is using `Napi` and C++, of course can use any api from node js fro
 ## Requirements
 
  YOLO is included as submodule.  more info [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main).
-These are models to detect objects in images and videos. applied to [`opencv_facedetect_demo`](#opencv_facedetect_demo) who use haar cascade algorithms.
+These are models to detect objects in images and videos. applied to [`opencv_facedetect_demo`](#opencv_facedetect_demo) who use haar cascade algorithms by default.
 
 Run these command.
 ```bash

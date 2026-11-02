@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")"
+
+SDK="/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk"
+test -d "$SDK" || { echo "SDK not found: $SDK"; exit 1; }
+
+cmake -S . -B build \
+  -DOpenCV_DIR="$(brew --prefix opencv)/lib/cmake/opencv5" \
+  -DCMAKE_OSX_SYSROOT="$SDK"
+cmake --build build
+exec ./build/edges
