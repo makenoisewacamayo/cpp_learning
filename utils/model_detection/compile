@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")"
+
+SDK="/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk"
+test -d "$SDK" || { echo "SDK not found: $SDK"; exit 1; }
+
+cmake -S . -B build \
+  -DOpenCV_DIR="$(brew --prefix opencv)/lib/cmake/opencv5" \
+  -DCMAKE_OSX_SYSROOT="$SDK"
+cmake --build build
+# export OPENCV_SAMPLES_DATA_PATH="$HOME/node_develop/utils/model_detection/data"
+# export OPENCV_MODEL_PATH="$HOME/node_develop/opencv_classification_demo/assets/dnn"
+exec ./build/object_detection.app/Contents/MacOS/object_detection
