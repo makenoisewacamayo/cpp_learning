@@ -11,4 +11,4 @@ cmake -S . -B build \
 cmake --build build
 # export OPENCV_SAMPLES_DATA_PATH="$HOME/node_develop/utils/model_detection/data"
 # export OPENCV_MODEL_PATH="$HOME/node_develop/opencv_classification_demo/assets/dnn"
-exec ./build/object_detection.app/Contents/MacOS/object_detection
+exec ./build/object_detection.app/Contents/MacOS/object_detection  --model=../../opencv_classification_demo/assets/dnn/models.yml --async=1

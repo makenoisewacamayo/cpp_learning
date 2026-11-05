@@ -31,6 +31,6 @@ console.log('*************************************');
 console.dir(detector.detect(image), { depth: null });
 
 const result = detector.detectWithImage(image);
-fs.writeFileSync(path.join(outputDirPath, 'test_face_detect.jpeg'), result.image);
+fs.writeFileSync(path.join(outputDirPath, 'test_face_detect_prueba.jpeg'), result.image);
 
 image.release();
