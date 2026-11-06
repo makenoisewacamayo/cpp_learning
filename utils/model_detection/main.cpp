@@ -40,6 +40,8 @@ const string param_keys =
     "{ async       |         0         | Number of asynchronous forwards at the same time. "
                         "Choose 0 for synchronous mode }"
     "{ padvalue    |       114.0       | padding value. }"
+    "{ camwidth    |        640        | Requested camera capture width (ignored when --input is used). }"
+    "{ camheight   |        480        | Requested camera capture height (ignored when --input is used). }"
     "{ paddingmode |         2         | Choose one of padding modes: "
                          "0: resize to required input size without extra processing, "
                          "1: Image will be cropped after resize, "
@@ -243,6 +245,15 @@ int main(int argc, char** argv)
     if (!openSuccess){
         cout << "Could not open input file or camera device" << endl;
         return 0;
+    }
+
+    // Lower the camera resolution (only applies to camera capture, ignored for files)
+    if (!parser.has("input")) {
+        cap.set(CAP_PROP_FRAME_WIDTH, parser.get<int>("camwidth"));
+        cap.set(CAP_PROP_FRAME_HEIGHT, parser.get<int>("camheight"));
+        cout << "Camera resolution: "
+             << cap.get(CAP_PROP_FRAME_WIDTH) << "x"
+             << cap.get(CAP_PROP_FRAME_HEIGHT) << endl;
     }
 
     FontFace sans("sans");
