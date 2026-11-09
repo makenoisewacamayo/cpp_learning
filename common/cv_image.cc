@@ -1,8 +1,6 @@
 #include "cv_image.h"
-#include <napi.h>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
-#include "face_detector.h"
 
 
 Napi::FunctionReference CvImage::constructor;
@@ -177,21 +175,6 @@ Napi::Value CvImage::ResizeAsync(const Napi::CallbackInfo& info) {
   return deferred.Promise();
 }
 
-Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
-    CvImage::Init(env, exports);
-    FaceDetector::Init(env, exports);
-    return exports;
-}
- 
-
-// Finalizer note: we allocated cv::Mat on heap when constructing via External.
-// We must free it when the JS object is garbage-collected. Hook into a finalizer by overriding the destructor of external object.
-// To do that, we need to intercept construction: when constructor receives External, it took ownership of new cv::Mat in NewInstance.
-// So ensure external memory is deleted when JS object is finalized:
-namespace {
-    void FinalizeMat(Napi::Env env, cv::Mat* mat) {
-        delete mat;
-    }
-}
-
-NODE_API_MODULE(NODE_GYP_MODULE_NAME, InitAll)
+// NOTE: This file is shared between demos. Module registration
+// (InitAll / NODE_API_MODULE) lives in each demo's own addon entry
+// file (e.g. addons/addon.cc), which calls CvImage::Init(env, exports).
