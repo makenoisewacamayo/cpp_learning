@@ -3,19 +3,21 @@ set -eu
 cd "$(dirname "$0")"
 
 SDK="/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk"
-test -d "$SDK" || { echo "SDK not found: $SDK"; exit 1; }
+ZOO="$HOME/node_develop/opencv_clasification_demo/assets/dnn/models.yml"
+test -f "$ZOO" || { echo "Missing zoo file: $ZOO"; exit 1; }
+
+
+# export OPENCV_DOWNLOAD_CACHE_DIR="$CACHE"
 
 cmake -S . -B build \
   -DOpenCV_DIR="$(brew --prefix opencv)/lib/cmake/opencv5" \
   -DCMAKE_OSX_SYSROOT="$SDK"
 cmake --build build
 
-ROOT="$(pwd)"
-export OPENCV_SAMPLES_DATA_PATH="$ROOT/data"
-export OPENCV_DOWNLOAD_CACHE_DIR="$ROOT/../../opencv_clasification_demo/assets/dnn"
-
 exec ./build/object_detection.app/Contents/MacOS/object_detection \
+  --zoo="$HOME/node_develop/opencv_clasification_demo/assets/dnn/models.yml" \
   yolov8 \
-  --zoo="$ROOT/../../opencv_clasification_demo/assets/dnn/models.yml" \
+  --camwidth=640 \
+  --camheight=480 \
   --async=1 \
   "$@"

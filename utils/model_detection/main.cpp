@@ -317,7 +317,7 @@ int main(int argc, char** argv)
                         //![forward]
                         vector<Mat> outs;
                         net.forward(outs, net.getUnconnectedOutLayersNames());
-                        net.printPerfProfile();
+                        // net.printPerfProfile();
                         predictionsQueue.push(outs);
                         //![forward]
                     }
@@ -388,7 +388,7 @@ int main(int argc, char** argv)
             tickMeter.start();
             net.forward(outs, net.getUnconnectedOutLayersNames());
             tickMeter.stop();
-            net.printPerfProfile();
+            // net.printPerfProfile();
 
             classIds.clear();
             confidences.clear();
