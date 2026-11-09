@@ -8,9 +8,10 @@ project(learning_cpp_opencv_classifier_demo VERSION 1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
-include_directories(${CMAKE_JS_INC} "addons")
+set(COMMON_DIR "${CMAKE_SOURCE_DIR}/../common")
+include_directories(${CMAKE_JS_INC} "addons" "${COMMON_DIR}")
 file(GLOB SOURCES "addons/*.cc" "addons/*.cpp" "addons/*.c")
+list(APPEND SOURCES "${COMMON_DIR}/cv_image.cc")
 
 # add these lines for opencv
 set(HOMEBREW_CELLAR "/opt/homebrew/Cellar")
