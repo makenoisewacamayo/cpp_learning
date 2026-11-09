@@ -23,7 +23,7 @@ if(NOT DEFINED OpenCVs_DIR)
   set(OpenCV_DIR "${HINT_OPENCV_DIR}/cmake/opencv5" CACHE PATH "OpenCV cmake dir")
 endif()
 
-find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs highgui videoio xobjdetect)
+find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs xobjdetect)
 message(STATUS "OpenCV found: ${OpenCV_VERSION}")
 message(STATUS "OpenCV include dirs: ${OpenCV_INCLUDE_DIRS}")
 message(STATUS "OpenCV libs: ${OpenCV_LIBS}")
