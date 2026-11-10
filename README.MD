@@ -1,4 +1,6 @@
-# C++ with node-addon-api 
+# C++ with node-addon-api
+[Version in spanish](README_ES.MD)
+
 
 Learning repository for building **native Node.js addons in C++** using [node-addon-api](https://github.com/nodejs/node-addon-api) (N-API) and [cmake-js](https://github.com/cmake-js/cmake-js), with a TypeScript call from node js.
 
@@ -10,15 +12,21 @@ my goal here is using `Napi` and C++, of course can use any api from node js fro
 
 ## Requirements
 
- YOLO is included as submodule.  more info [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main).
-These are models to detect objects in images and videos. applied to [`opencv_facedetect_demo`](#opencv_facedetect_demo) who use haar cascade algorithms by default.
+ YOLO is included as submodule. is fork from [Yolo from ultralytics](https://github.com/ultralytics/ultralytics) just in case i need to made changes.
+
+just do  this command if already clone  tge repository
+```bash
+ git submodule update --init --recursive
+```
+
+For face detection [`opencv_facedetect_demo`](#opencv_facedetect_demo) it using haar cascade algorithms by default.
 
 Run these command.
 ```bash
  git config --local core.hooksPath .githooks
 ```
 
-- **Node.js 22.x** (enforced via `engines` + `engine-strict`)
+- **Node.js 22 or above** (enforced via `engines` + `engine-strict`)
 - **CMake** and a C++17 compiler (AppleClang/Xcode Command Line Tools on macOS)
 - **Ninja** (optional, used automatically if available)
 - **TypeScript**
