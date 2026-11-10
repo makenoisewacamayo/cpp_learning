@@ -193,7 +193,7 @@ find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs highgui videoio x
 
 Resultados:
 
-![Resultados de la detección de rostros](opencv_facedetect_demo/output/test_face_detect.jpeg)
+![Resultados de la detección de rostros](opencv_facedetect_demo/output/test_face_detect_prueba.jpeg)
 
 ### `opencv_classification_demo`
 
