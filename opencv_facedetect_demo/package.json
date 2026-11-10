@@ -4,11 +4,12 @@
   "description": "Migrate OpenCV face detection to Node.js based (https://docs.opencv.org/5.0/examples/opencv_contrib_modules_xobjdetect_samples_facedetect_cpp.html)",
   "main": "src/index.ts",
   "scripts": {
-    "check-node": "node -e \"const v=process.versions.node.split('.')[0]; if (v !== '22') { throw new Error('Node 22 is required, current: ' + process.version); }\"",
+    "clean": "npx rimraf build dist",
+    "check-node": "node -e \"const v = Number(process.versions.node.split('.')[0]); if (v < 22) { throw new Error('Node.js 22 or above is required, current: ' + process.version); }\"",
     "preinstall": "npm run check-node",
     "prebuild": "npm run check-node",
     "prestart": "npm run check-node",
-    "build:cmake": "cmake-js compile",
+    "build:cmake": "npm run clean && cmake-js compile",
     "build": "SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk npm run build:cmake",
     "start": "tsc && node dist/index.js"
   },
@@ -17,13 +18,16 @@
   },
   "binary": [
     {
-      "napi_versions": [9]
+      "napi_versions": [
+        9
+      ]
     }
   ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.20.4",
+    "rimraf": "^6.1.4",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
