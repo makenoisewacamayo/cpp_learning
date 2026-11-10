@@ -83,6 +83,23 @@ Todos los proyectos tienen la misma estructura:
   - `bindings.ts` → importa la clase del módulo C++ expuesta y genera una interfaz.
   - `index.ts` → código de demostración.
 
+### `Utils`
+Aquí tome ejemplos directamente de las muestras de OpenCV y los compilé para macOS. Si quieres verlos en acción, ve a las carpetas `utils/edges` y `utils/model_detection`.
+
+Y ejecuta la compilación:
+
+ ```bash
+./compile
+```
+
+para `utils/model_detection` añade estas variables a tu bashrc o zshrc, de lo contrario no se compilará
+
+```bash
+export OPENCV_SAMPLES_DATA_PATH="$HOME/node_develop/utils/model_detection/data"
+export OPENCV_MODEL_PATH="$HOME/node_develop/opencv_clasification_demo/assets/dnn"
+export OPENCV_DOWNLOAD_CACHE_DIR="$HOME/node_develop/opencv_clasification_demo/assets/dnn"
+```
+
 ### `demo_myObject`
 
 Una demo nativa muy básica que expone una clase de C++ (`MyObject`) con métodos de instancia como `greet` y `add`. Su objetivo es mostrar lo esencial para integrar código C/C++ como módulo de Node.js.

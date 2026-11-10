@@ -79,6 +79,23 @@ All the projects have the same structure:
     - bindings.ts -> import the module C++ class exposed, generate an interface.
     - index.ts -> Demo code.
 
+### `Utils`
+ Here i greab examples directly from the samples of opencv and compile for OSX.
+ I you want to see in action just go to the folders `utils/edges` and `utils/model_detection`
+
+ And Run compile
+ ```bash
+./compile
+```
+
+for `utils/model_detection` add these variables to your bashrc or zshrc, otherwise won't compile
+
+```bash
+export OPENCV_SAMPLES_DATA_PATH="$HOME/node_develop/utils/model_detection/data"
+export OPENCV_MODEL_PATH="$HOME/node_develop/opencv_clasification_demo/assets/dnn"
+export OPENCV_DOWNLOAD_CACHE_DIR="$HOME/node_develop/opencv_clasification_demo/assets/dnn"
+```
+
 ### `demo_myObject`
 
 A very basic demo native that exposes a C++ class (`MyObject`) with instance methods like `greet` and `add`.just make the essence to integrate C++/C code as module for node.
