@@ -264,7 +264,7 @@ La imagen con los resultados se guardará en `output/annotated.jpg`.
 
 ## Uso
 
-Fallará si no usas Node.js 22.x.
+Fallará si no usas Node.js 22 ó superior
 
 ```bash
 cd specific_projects_folder
