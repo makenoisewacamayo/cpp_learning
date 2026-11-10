@@ -261,7 +261,7 @@ Image results image will be saved to `output/annotated.jpg`.
 
 ## Usage
 
-it will fails if you don't use node 22.x
+it will fails if you don't use node 22 or superior
 
 ```bash
 cd specific_projects_folder
