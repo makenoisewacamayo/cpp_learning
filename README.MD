@@ -80,7 +80,7 @@ All the projects have the same structure:
     - index.ts -> Demo code.
 
 ### `Utils`
- Here i greab examples directly from the samples of opencv and compile for OSX.
+ Here i take the examples directly from the samples of opencv and compile for OSX.
  I you want to see in action just go to the folders `utils/edges` and `utils/model_detection`
 
  And Run compile
